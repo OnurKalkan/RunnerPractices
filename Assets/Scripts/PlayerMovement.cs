@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -29,12 +30,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))//if I press A it will slide to left
         {
             if(warrior.transform.localPosition.x > -2)
-                warrior.transform.localPosition -= new Vector3(2,0,0);
+            {
+                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x - 2, 0.25f);
+            }
+                //warrior.transform.localPosition -= new Vector3(2,0,0);//obselete
         }
         if (Input.GetKeyDown(KeyCode.D))//if I press D it will slide to right
         {
             if (warrior.transform.localPosition.x < 2)
-                warrior.transform.localPosition += new Vector3(2, 0, 0);
+            {
+                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x + 2, 0.25f);
+            }
+                //warrior.transform.localPosition += new Vector3(2, 0, 0);//obselete
         }
     }
 }
