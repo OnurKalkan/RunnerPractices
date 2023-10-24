@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 424111637}
   - component: {fileID: 424111641}
   m_Layer: 0
-  m_Name: CapsulePlayer 2
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,9 +542,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 424111636}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7d6ceeb56ad3a547bb81681dbfd9ba2, type: 3}
+  m_Script: {fileID: 11500000, guid: 456bef7295968a74d8014edb0bdadc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  warrior: {fileID: 693252088}
 --- !u!4 &442875340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1694388104871467739, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
@@ -564,6 +565,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1694388104871467697, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
   m_PrefabInstance: {fileID: 783951131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &693252088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 02165b8c9e350f749ba899eb7f5b1f18, type: 3}
+  m_PrefabInstance: {fileID: 1815712933}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &754655834 stripped
 Transform:
@@ -959,7 +965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02165b8c9e350f749ba899eb7f5b1f18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9666669
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 02165b8c9e350f749ba899eb7f5b1f18, type: 3}
       propertyPath: m_LocalPosition.z
@@ -995,7 +1001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02165b8c9e350f749ba899eb7f5b1f18, type: 3}
       propertyPath: m_Name
-      value: RFA_Model
+      value: Warrior
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 02165b8c9e350f749ba899eb7f5b1f18, type: 3}
       propertyPath: m_Controller
