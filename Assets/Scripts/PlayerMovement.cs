@@ -13,17 +13,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (tapToStart)
+        if (tapToStart == true)
             transform.Translate(Vector3.forward * speed);//movement code
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            print("enter pressed");//shows a enter pressed message on console when space pressed
-            //transform.Find("Warrior").GetComponent<Animator>().SetBool("RunStart", true);//search the warrior in children
-            //GameObject.Find("Warrior").GetComponent<Animator>().SetBool("RunStart", true);//search the warrior in game scene
             warrior.GetComponent<Animator>().SetBool("RunStart", true);//reference to the warrior with a game object variable
             tapToStart = true;
         }
@@ -31,17 +28,17 @@ public class PlayerMovement : MonoBehaviour
         {
             if(warrior.transform.localPosition.x > -2)
             {
-                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x - 2, 0.25f);
+                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x - 2, 0.5f);
+                warrior.GetComponent<Animator>().SetTrigger("RunLeft");
             }
-                //warrior.transform.localPosition -= new Vector3(2,0,0);//obselete
         }
         if (Input.GetKeyDown(KeyCode.D))//if I press D it will slide to right
         {
             if (warrior.transform.localPosition.x < 2)
             {
-                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x + 2, 0.25f);
+                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x + 2, 0.5f);
+                warrior.GetComponent<Animator>().SetTrigger("RunRight");
             }
-                //warrior.transform.localPosition += new Vector3(2, 0, 0);//obselete
         }
     }
 }
