@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(warrior.transform.localPosition.x > -2)
             {
-                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x - 2, 0.5f);
+                warrior.transform.DOLocalMoveX(warrior.transform.localPosition.x - 2, 0.5f);//.SetDelay(0.2f);
                 warrior.GetComponent<Animator>().SetTrigger("RunLeft");
             }
         }
