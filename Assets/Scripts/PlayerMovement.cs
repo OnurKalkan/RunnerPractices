@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float speed = 0.05f;
+    float speed = 0.15f;
     public GameObject warrior;
     bool tapToStart = false;
 
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            warrior.GetComponent<Animator>().SetBool("Idle", false);
             warrior.GetComponent<Animator>().SetBool("RunStart", true);//reference to the warrior with a game object variable
             tapToStart = true;
         }
@@ -40,5 +42,21 @@ public class PlayerMovement : MonoBehaviour
                 warrior.GetComponent<Animator>().SetTrigger("RunRight");
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "LevelFinish")
+        {
+            warrior.GetComponent<Animator>().SetBool("RunStart", false);
+            warrior.GetComponent<Animator>().SetBool("Idle", true);
+            tapToStart = false;
+            Invoke(nameof(Level2), 2);
+        }
+    }
+
+    void Level2()
+    {
+        SceneManager.LoadScene(1);
     }
 }
