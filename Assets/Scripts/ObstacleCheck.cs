@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ObstacleCheck : MonoBehaviour
 {
     public int health = 100;
+    public int timer = 30;
 
     private void Start()
     {        
@@ -36,6 +37,20 @@ public class ObstacleCheck : MonoBehaviour
             health -= 10;
             PlayerPrefs.SetInt("HealthValue", health);
             print(health);
+        }
+    }
+
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(1);
+        if (timer > 0)
+        {
+            timer--;
+            StartCoroutine(Timer());
+        }            
+        else
+        {
+            //endgame
         }
     }
 }
